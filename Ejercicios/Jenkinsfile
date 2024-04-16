@@ -1,0 +1,25 @@
+pipeline
+{
+    agent any
+
+    stages
+    {
+        stage("Days of the Week")
+        {
+            steps
+            {
+                script
+                {
+                    current_day = new Date().getDay()
+                    week_days = [1: "Lunes", 2: "Martes", 3: "Miercoles", 4: "Jueves", 5: "Viernes", 6: "Sabado", 7: "Domingo"]
+
+                    week_days.each{ key, value -> 
+                        println "El día " + key + " de la semana, es el " + value
+                    }
+
+                    println "Hoy es " + week_days[current_day]
+                }
+            }
+        }
+    }
+}
